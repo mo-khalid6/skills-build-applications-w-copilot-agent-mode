@@ -20,6 +20,7 @@ async function seed(): Promise<void> {
     { name: 'Avery Chen', email: 'avery.chen@example.com', age: 29, fitnessLevel: 'Intermediate' },
     { name: 'Jordan Miles', email: 'jordan.miles@example.com', age: 34, fitnessLevel: 'Advanced' },
     { name: 'Sam Rivera', email: 'sam.rivera@example.com', age: 27, fitnessLevel: 'Beginner' },
+    { name: 'MU Foaud', email: 'mufouad@example.com', age: 31, fitnessLevel: 'Intermediate' },
   ]);
 
   await Team.insertMany([
