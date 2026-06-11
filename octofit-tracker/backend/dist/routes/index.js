@@ -1,30 +1,24 @@
 import { Router } from 'express';
+import { Activity, LeaderboardEntry, Team, User, Workout } from '../models/index.js';
 const router = Router();
-const sampleData = {
-    users: [
-        { id: 1, name: 'Avery', email: 'avery@example.com' },
-        { id: 2, name: 'Jordan', email: 'jordan@example.com' },
-    ],
-    teams: [
-        { id: 1, name: 'Trail Blazers' },
-        { id: 2, name: 'Sprint Squad' },
-    ],
-    activities: [
-        { id: 1, type: 'Run', duration: 30 },
-        { id: 2, type: 'Cycle', duration: 45 },
-    ],
-    leaderboard: [
-        { rank: 1, name: 'Avery', score: 120 },
-        { rank: 2, name: 'Jordan', score: 105 },
-    ],
-    workouts: [
-        { id: 1, name: 'Morning HIIT', duration: 20 },
-        { id: 2, name: 'Recovery Stretch', duration: 15 },
-    ],
-};
-router.get('/users', (_req, res) => res.json(sampleData.users));
-router.get('/teams', (_req, res) => res.json(sampleData.teams));
-router.get('/activities', (_req, res) => res.json(sampleData.activities));
-router.get('/leaderboard', (_req, res) => res.json(sampleData.leaderboard));
-router.get('/workouts', (_req, res) => res.json(sampleData.workouts));
+router.get('/users', async (_req, res) => {
+    const users = await User.find({}).lean();
+    res.json(users);
+});
+router.get('/teams', async (_req, res) => {
+    const teams = await Team.find({}).lean();
+    res.json(teams);
+});
+router.get('/activities', async (_req, res) => {
+    const activities = await Activity.find({}).lean();
+    res.json(activities);
+});
+router.get('/leaderboard', async (_req, res) => {
+    const leaderboard = await LeaderboardEntry.find({}).sort('rank').lean();
+    res.json(leaderboard);
+});
+router.get('/workouts', async (_req, res) => {
+    const workouts = await Workout.find({}).lean();
+    res.json(workouts);
+});
 export default router;
