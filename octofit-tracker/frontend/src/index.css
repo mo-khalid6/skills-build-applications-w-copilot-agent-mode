@@ -1,0 +1,38 @@
+:root {
+  color: #e5eefb;
+  background: #07111f;
+  font-family: Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.10), transparent 28%),
+    linear-gradient(145deg, #020617 0%, #07111f 45%, #111827 100%);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  color: #f8fbff;
+  font-weight: 700;
+}
+
+p { margin: 0; }
+
+.container {
+  max-width: 1200px;
+}
